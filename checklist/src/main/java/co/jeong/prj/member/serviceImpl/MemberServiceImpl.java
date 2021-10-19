@@ -19,22 +19,22 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public MemberVO memberSelect(MemberVO vo) {
-		return map.memberSelect(vo);
+		return map.MemberSelect(vo);
 	}
 
 	@Override
 	public int memberInsert(MemberVO vo) {
-		return map.memberInsert(vo);
+		return map.MemberInsert(vo);
 	}
 
 	@Override
 	public int memberUpdate(MemberVO vo) {
-		return map.memberUpdate(vo);
+		return map.MemberUpdate(vo);
 	}
 
 	@Override
 	public int memberDelete(MemberVO vo) {
-		return map.memberDelete(vo);
+		return map.MemberDelete(vo);
 	}
 
 }

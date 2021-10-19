@@ -1,7 +1,6 @@
 package co.jeong.prj.sales.serviceImpl;
 
 import co.jeong.prj.common.Command;
-import co.jeong.prj.common.GB;
 import co.jeong.prj.sales.service.SalesService;
 import co.jeong.prj.sales.service.SalesVO;
 
@@ -12,12 +11,8 @@ public class SalesDelete implements Command  {
 	public void execute() {
 		SalesVO sales = new SalesVO();
 		System.out.println("=========================");
-		System.out.println("삭제할 출고제품이름을 입력하세요.");
-		String str = scn.nextLine();
-		if(str.equals(sales.getSalproductname())) {
-			sales.setSalesnum(GB.salesnum);;
-		}
-		
+		System.out.println("삭제할 출고제품번호을 입력하세요.");
+		sales.setSalesnum(scn.nextInt());
 		int n = dao.salesSelectDelete(sales);
 		
 		if (n != 0) {

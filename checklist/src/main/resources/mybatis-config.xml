@@ -16,8 +16,8 @@
     </environment>
   </environments>
   <mappers>
+    <mapper resource="co/jeong/prj/member/serviceImpl/member-map.xml"/>
     <mapper resource="co/jeong/prj/purchase/serviceImpl/purchase-map.xml"/>
     <mapper resource="co/jeong/prj/sales/serviceImpl/sales-map.xml"/>
-    <mapper resource="co/jeong/prj/member/serviceImpl/member-map.xml"/>
   </mappers>
 </configuration>

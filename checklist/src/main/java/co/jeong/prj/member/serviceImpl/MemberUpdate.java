@@ -18,6 +18,8 @@ public class MemberUpdate implements Command {
 		member.setTel(scn.nextLine());
 		System.out.println("변경하고 싶은 주소를 입력하세요.");
 		member.setAddress(scn.nextLine());
+		System.out.println("변경하고 싶은 회사명을 입력하세요.");
+		member.setUsername(scn.nextLine());
 		
 		int n = dao.memberUpdate(member);
 		

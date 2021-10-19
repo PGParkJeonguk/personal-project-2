@@ -7,11 +7,13 @@ import lombok.Setter;
 @Setter
 
 public class PurchaseVO {
+	int purchasenum;
 	String purchasecompany;
 	String purkind;
-	String productname;
+	String purproductname;
 	int purprice;
 	int purcount;
 	int purstock;
-	int purchasenum;
+	String username;
+	
 }

@@ -15,12 +15,12 @@ public class PurchaseServiceImpl implements PurchaseService {
 	
 	@Override
 	public List<PurchaseVO> PurchaseSelectList() {
-		return map.PurchaseSelectList();
+		return map.purchaseSelectList();
 	}
 
 	@Override
 	public PurchaseVO purchaseSelect(PurchaseVO vo) {
-		return map.PurchaseSelect(vo);
+		return map.purchaseSelect(vo);
 	}
 
 	@Override

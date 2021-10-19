@@ -3,9 +3,9 @@ package co.jeong.prj.sales.service;
 import java.util.List;
 
 public interface SalesMapper {
-	List<SalesVO> salesSelectList();
-	SalesVO salesSelect(SalesVO vo);
-	int salesSelectInsert(SalesVO vo);
-	int salesSelectUpdate(SalesVO vo);
-	int salesSelectDelete(SalesVO vo);
+	List<SalesVO> SalesSelectList();
+	SalesVO SalesSelect(SalesVO vo);
+	int SalesInsert(SalesVO vo);
+	int SalesUpdate(SalesVO vo);
+	int SalesDelete(SalesVO vo);
 }

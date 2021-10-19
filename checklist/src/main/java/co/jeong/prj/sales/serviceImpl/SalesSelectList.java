@@ -17,11 +17,12 @@ public class SalesSelectList implements Command {
 		System.out.println("=========================");
 		if(sales != null) {
 			for(SalesVO vo : sales) {
-				System.out.println(vo.getSalescompany());
-				System.out.println(vo.getSalkind());
-				System.out.println(vo.getSalproductname());
-				System.out.println(vo.getSalprice());
-				System.out.println(vo.getSalcount());
+				System.out.print(vo.getSalesnum()+ " ");
+				System.out.print(vo.getSalescompany()+ " ");
+				System.out.print(vo.getSalkind()+ " ");
+				System.out.print(vo.getSalproductname()+ " ");
+				System.out.print(vo.getSalprice()+ " ");
+				System.out.print(vo.getSalcount()+ " ");
 				System.out.println(vo.getSalstock());
 			}
 		}else {

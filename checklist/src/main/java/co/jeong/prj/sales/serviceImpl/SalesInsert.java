@@ -23,6 +23,8 @@ public class SalesInsert implements Command {
 		sales.setSalcount(scn.nextInt());
 		System.out.println("제품재고를 입력하세요.");
 		sales.setSalstock(sales.getSalcount() + scn.nextInt());
+		System.out.println("바코드를 입력하세요.");
+		sales.setBacord(scn.nextInt());
 
 		int n = dao.salesSelectInsert(sales);
 		if (n != 0) {

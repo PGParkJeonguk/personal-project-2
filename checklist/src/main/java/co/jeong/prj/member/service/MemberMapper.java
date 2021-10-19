@@ -4,8 +4,8 @@ import java.util.List;
 
 public interface MemberMapper {
 	List<MemberVO> MemberSelectList();
-	MemberVO memberSelect(MemberVO vo);
-	int memberInsert(MemberVO vo);
-	int memberUpdate(MemberVO vo);
-	int memberDelete(MemberVO vo);
+	MemberVO MemberSelect(MemberVO vo);
+	int MemberInsert(MemberVO vo);
+	int MemberUpdate(MemberVO vo);
+	int MemberDelete(MemberVO vo);
 }

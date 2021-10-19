@@ -3,25 +3,25 @@
 <mapper
 	namespace="co.jeong.prj.purchase.service.PurchaseMapper">
 	<select id="purchaseSelectList" resultType="co.jeong.prj.purchase.service.PurchaseVO">
-		select * from PURCHASE
+		select * from purchase
 	</select>
 	
 	<select id="purchaseSelect" resultType="co.jeong.prj.purchase.service.PurchaseVO">
-		select * from PURCHASE where PURCHASECOMPANY = #{PURCHASECOMPANY} and PURPRODUCTNAME = #{PURPRODUCTNAME} 
+		select * from purchase where purproductname = #{purproductname} and  purchasecompany = #{purchasecompany}
 	</select>
 	
 	<insert id="purchaseInsert" parameterType="co.jeong.prj.purchase.service.PurchaseVO">
-		insert into sales
-		values(#{PURCHASEcompany},#{purkind},#{PURPRODUCTNAME},#{purprice},#{purcount},#{purstock})
+		insert into purchase
+		values(p_squ.nextval,#{purchasecompany},#{purkind},#{purproductname},#{purprice},#{purcount},#{purstock},#{username})
 	</insert>
 	
 	<update id="purchaseUpdate" parameterType="co.jeong.prj.purchase.service.PurchaseVO">
-		update sales set PURCHASEcompany = #{PURCHASEcompany},PURPRODUCTNAME = #{PURPRODUCTNAME},purprice = #{purprice},
+		update purchase set purchasecompany = #{purchasecompany},purproductname = #{purproductname},purprice = #{purprice},
 		purcount = #{purcount}, purstock = #{purstock} where purchasenum = #{purchasenum}
 	</update>
 	
 	<delete id="purchaseDelete" parameterType="co.jeong.prj.purchase.service.PurchaseVO">
-		delete from sales where = #{purchasenum}
+		delete from purchase where purchasenum = #{purchasenum}
 	</delete>
 	
 </mapper>

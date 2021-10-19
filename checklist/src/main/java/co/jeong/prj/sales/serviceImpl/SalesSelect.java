@@ -19,11 +19,12 @@ public class SalesSelect implements Command {
 		sales = dao.salesSelect(sales);
 		
 		if(sales != null) {
-			System.out.println("납품회사 : " + sales.getSalescompany());
-			System.out.println("종류 : " + sales.getSalkind());
-			System.out.println("상품이름 : " + sales.getSalproductname());
-			System.out.println("납품가격 : " + sales.getSalprice());
-			System.out.println("납품한 양 : " + sales.getSalcount());
+			System.out.print("제품번호 : " + sales.getSalesnum() + " ");
+			System.out.print("납품회사 : " + sales.getSalescompany()+ " ");
+			System.out.print("종류 : " + sales.getSalkind()+ " ");
+			System.out.print("상품이름 : " + sales.getSalproductname()+ " ");
+			System.out.print("납품가격 : " + sales.getSalprice()+ " ");
+			System.out.print("납품한 양 : " + sales.getSalcount()+ " ");
 			System.out.println("재고량 : " + sales.getSalstock());
 		}else {
 			System.out.println("잘못 입력하셨거나 없는 제품입니다.");
