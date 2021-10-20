@@ -8,6 +8,11 @@ import co.jeong.prj.member.serviceImpl.MemberInsert;
 import co.jeong.prj.member.serviceImpl.MemberSelect;
 import co.jeong.prj.member.serviceImpl.MemberSelectList;
 import co.jeong.prj.member.serviceImpl.MemberUpdate;
+import co.jeong.prj.product.serviceImpl.ProductDelete;
+import co.jeong.prj.product.serviceImpl.ProductInsert;
+import co.jeong.prj.product.serviceImpl.ProductSelect;
+import co.jeong.prj.product.serviceImpl.ProductSelectList;
+import co.jeong.prj.product.serviceImpl.ProductUpdate;
 import co.jeong.prj.purchase.serviceImpl.PurchaseDelete;
 import co.jeong.prj.purchase.serviceImpl.PurchaseInsert;
 import co.jeong.prj.purchase.serviceImpl.PurchaseSelect;
@@ -40,7 +45,11 @@ public class Menu {
 		map.put("SalesInsert", new SalesInsert());
 		map.put("SalesUpdate", new SalesUpdate());
 		map.put("SalesDelete", new SalesDelete());
-		
+		map.put("ProductSelectList", new ProductSelectList());
+		map.put("ProductSelect", new ProductSelect());
+		map.put("ProductInsert", new ProductInsert());
+		map.put("ProductUpdate", new ProductUpdate());
+		map.put("ProductDelete", new ProductDelete());
 	}
 
 	private void menu() {
@@ -49,15 +58,34 @@ public class Menu {
 			int jobNo = GB.scn.nextInt();
 			switch (jobNo) {
 			case 1:
-				memberMangement();
+				if(GB.id.equals("jeonguk")) {
+					memberMangement();
+				}else {
+					System.out.println("권한이 없습니다.");
+				}
 				break;
 			case 2:
-				purchaseMangement();
+				if(!GB.id.equals("jeonguk")) {
+					productMangement();
+				}else {
+					System.out.println("관리자는 데이터베이스에 접근하지 못합니다.");
+				}
 				break;
 			case 3:
-				salesMangement();
+				if(!GB.id.equals("jeonguk")) {
+				purchaseMangement();
+				}else {
+				System.out.println("관리자는 데이터베이스에 접근하지 못합니다.");
+				}
 				break;
-			case 4:	
+			case 4:
+				if(!GB.id.equals("jeonguk")) {
+				salesMangement();
+				}else {
+				System.out.println("관리자는 데이터베이스에 접근하지 못합니다.");
+				}
+				break;
+			case 5:	
 				System.out.println("프로그램 완전히 종료합니다.");
 				GB.scn.close();
 				return;
@@ -65,6 +93,37 @@ public class Menu {
 				System.out.println("잘못된 키를 입력하였습니다.");
 			}
 		}
+	}
+	
+	private void productMangement() {
+		boolean b = false;
+		do {
+			productTitle();
+			int jobNo = GB.scn.nextInt();
+			switch (jobNo) {
+			case 1:
+				executRun("ProductSelectList");
+				break;
+			case 2:
+				executRun("ProductSelect");
+				break;
+			case 3:
+				executRun("ProductInsert");
+				break;
+			case 4:
+				executRun("ProductUpdate");
+				break;
+			case 5:
+				executRun("ProductDelete");
+			case 6:
+				System.out.println("메뉴화면으로 돌아갑니다.");
+				b = true;
+				break;
+			default:
+				System.out.println("잘못된 키를 입력하였습니다.");
+			}
+		} while (!b);
+
 	}
 
 	private void purchaseMangement() {
@@ -161,26 +220,29 @@ public class Menu {
 	}
 
 	private void mainMenu() {
+		System.out.println("====================================");
 		System.out.println("지금 접속한 아이디는 " + GB.id + " 입니다.");
 		System.out.println("지금 접속한 아이디의 이름은 " + GB.name + " 입니다.");
 		System.out.println("지금 접속한 회사명은 " + GB.username + " 입니다.");
+		System.out.println("====================================");
 		
 		System.out.println("==================");
 		System.out.println("=== 1. 멤버 관리 ===");
-		System.out.println("=== 2. 매입 관리 ===");
-		System.out.println("=== 3. 매출 관리 ===");
-		System.out.println("====4. 종    료 ====");
+		System.out.println("=== 2. 제품 관리 ===");
+		System.out.println("=== 3. 입고 관리 ===");
+		System.out.println("=== 4. 출고 관리 ===");
+		System.out.println("====5. 종    료 ====");
 		System.out.println("==================");
 		System.out.println("작업번호를 넣어주세요");
 	}
 
 	private void purchaseTitle() {
 		System.out.println("====================");
-		System.out.println("=== 1. 매입물품 목록 ===");
-		System.out.println("=== 2. 매입물품 조회 ===");
-		System.out.println("=== 3. 매입물품 등록 ===");
-		System.out.println("=== 4. 매입물품 수정 ===");
-		System.out.println("=== 5. 매입물품 삭제 ===");
+		System.out.println("=== 1. 입고물품 목록 ===");
+		System.out.println("=== 2. 입고물품 조회 ===");
+		System.out.println("=== 3. 입고물품 등록 ===");
+		System.out.println("=== 4. 입고물품 수정 ===");
+		System.out.println("=== 5. 입고물품 삭제 ===");
 		System.out.println("=== 6. 메인메뉴 이동 ===");
 		System.out.println("====================");
 		System.out.println("작업번호를 넣어주세요");
@@ -201,16 +263,28 @@ public class Menu {
 	
 	private void salesTitle() {
 		System.out.println("=====================");
-		System.out.println("=== 1. 매출목록 조회 ===");
-		System.out.println("=== 2. 매출정보 조회 ===");
-		System.out.println("=== 3. 매출정보 등록 ===");
-		System.out.println("=== 4. 매출정보 수정 ===");
-		System.out.println("=== 5. 매출정보 삭제 ===");
+		System.out.println("=== 1. 출고목록 조회 ===");
+		System.out.println("=== 2. 출고정보 조회 ===");
+		System.out.println("=== 3. 출고정보 등록 ===");
+		System.out.println("=== 4. 출고정보 수정 ===");
+		System.out.println("=== 5. 출고정보 삭제 ===");
 		System.out.println("=== 6. 메인메뉴 이동 ===");
 		System.out.println("=====================");
 		System.out.println("작업번호를 넣어주세요");
 	}
 
+	private void productTitle(){
+		System.out.println("=====================");
+		System.out.println("=== 1. 제품목록 조회 ===");
+		System.out.println("=== 2. 제품정보 조회 ===");
+		System.out.println("=== 3. 제품정보 등록 ===");
+		System.out.println("=== 4. 제품정보 수정 ===");
+		System.out.println("=== 5. 제품정보 삭제 ===");
+		System.out.println("=== 6. 메인메뉴 이동 ===");
+		System.out.println("=====================");
+		System.out.println("작업번호를 넣어주세요");
+	}
+	
 	private void executRun(String str) {
 		Command command = map.get(str);
 		command.execute();

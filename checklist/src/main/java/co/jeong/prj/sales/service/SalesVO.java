@@ -7,12 +7,14 @@ import lombok.Setter;
 @Setter
 
 public class SalesVO {
+	String salesdate;
 	String salescompany;
-	String salkind;
-	String salproductname;
-	int salprice;
-	int salcount;
-	int salstock;
-	int bacord;
+	String saleskind;
+	String salesname;
+	String username;
+	int salesclass;
+	int salesprice;
+	int salesacount;
 	int salesnum;
+	
 }

@@ -15,16 +15,15 @@ public class PurchaseSelectList implements Command {
 		List<PurchaseVO> purchase = new ArrayList<PurchaseVO>();
 		purchase = dao.PurchaseSelectList();
 		System.out.println("===========================");
-		System.out.println("번호  납입회사  종류   이름   납입가격    수량    현재재고");
 		if(purchase != null) {
 			for(PurchaseVO vo : purchase) {
 				System.out.print(vo.getPurchasenum() + " ");
+				System.out.print(vo.getPurchasedate() + " ");
 				System.out.print(vo.getPurchasecompany()+ " ");
-				System.out.print(vo.getPurkind()+ " ");
-				System.out.print(vo.getPurproductname()+ " ");
-				System.out.print(vo.getPurprice()+ " ");
-				System.out.print(vo.getPurcount()+ " ");
-				System.out.println(vo.getPurcount() + vo.getPurstock());
+				System.out.print(vo.getPurchasekind()+ " ");
+				System.out.print(vo.getPurchasename()+ " ");
+				System.out.print(vo.getPurchaseprice()+ " ");
+				System.out.println(vo.getPurchaseacount()+ " ");
 			}
 		}else{
 			System.out.println("등록된 납입물품이 없습니다.");

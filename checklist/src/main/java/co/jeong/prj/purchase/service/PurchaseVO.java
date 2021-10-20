@@ -1,5 +1,7 @@
 package co.jeong.prj.purchase.service;
 
+import java.sql.Date;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,12 +10,12 @@ import lombok.Setter;
 
 public class PurchaseVO {
 	int purchasenum;
+	Date purchasedate;
 	String purchasecompany;
-	String purkind;
-	String purproductname;
-	int purprice;
-	int purcount;
-	int purstock;
+	String purchasekind;
+	String purchasename;
+	int purchaseprice;
+	int purchaseacount;
 	String username;
 	
 }

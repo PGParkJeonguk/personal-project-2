@@ -1,13 +1,15 @@
 package co.jeong.prj.product.serviceImpl;
 
+
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
 import co.jeong.prj.common.DataSource;
-import co.jeong.prj.product.ProductMapper;
-import co.jeong.prj.product.ProductService;
-import co.jeong.prj.product.ProductVO;
+import co.jeong.prj.product.service.ProductMapper;
+import co.jeong.prj.product.service.ProductService;
+import co.jeong.prj.product.service.ProductVO;
+
 
 public class ProductServiceImpl implements ProductService {
 	private SqlSession sqlSession = DataSource.getInstance().openSession(true);

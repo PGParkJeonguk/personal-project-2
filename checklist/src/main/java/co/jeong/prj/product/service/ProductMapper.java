@@ -1,4 +1,4 @@
-package co.jeong.prj.product;
+package co.jeong.prj.product.service;
 
 import java.util.List;
 

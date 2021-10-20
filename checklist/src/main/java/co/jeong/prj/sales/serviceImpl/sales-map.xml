@@ -7,17 +7,18 @@
 	
 	<select id="SalesSelect" resultType="co.jeong.prj.sales.service.SalesVO"
 							 parameterType="co.jeong.prj.sales.service.SalesVO">
-		select * from sales where salproductname = #{salproductname} and salescompany = #{salescompany}
+		select * from sales where salesname = #{salesname} and salescompany = #{salescompany}
 	</select>
 	
 	<insert id="SalesInsert" parameterType="co.jeong.prj.sales.service.SalesVO">
 		insert into sales 
-		values(S_SQU.nextval,#{salescompany},#{salkind},#{salproductname},#{salprice},#{salcount},#{salstock},#{bacord})
+		values(S_SQU.nextval,#{saleskind},#{salesname},#{salescompany},#{salesclass},
+		#{salesprice},#{salesacount},#{username},#{salesdate})
 	</insert>
 	
 	<update id="SalesUpdate" parameterType="co.jeong.prj.sales.service.SalesVO">
-		update sales set salescompany = #{salescompany}, salproductname = #{salproductname}, salprice = #{salprice},
-		salcount = #{salcount}, salstock = #{salstock} , bacord = #{bacord} where salesnum = #{salesnum}
+		update sales set saleskind = #{saleskind}, salesname = #{salesname}, salescompany = #{salescompany},  
+		salesprice = #{salesprice},salesacount = #{salesacount},salesdate = #{salesdate} where salesnum = #{salesnum}
 	</update>
 	
 	<delete id="SalesDelete" parameterType="co.jeong.prj.sales.service.SalesVO">

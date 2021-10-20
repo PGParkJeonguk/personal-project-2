@@ -7,17 +7,18 @@
 	</select>
 	
 	<select id="purchaseSelect" resultType="co.jeong.prj.purchase.service.PurchaseVO">
-		select * from purchase where purproductname = #{purproductname} and  purchasecompany = #{purchasecompany}
+		select * from purchase where purchasename = #{purchasename} and  purchasecompany = #{purchasecompany}
 	</select>
 	
 	<insert id="purchaseInsert" parameterType="co.jeong.prj.purchase.service.PurchaseVO">
 		insert into purchase
-		values(p_squ.nextval,#{purchasecompany},#{purkind},#{purproductname},#{purprice},#{purcount},#{purstock},#{username})
+		values(pur_squ.nextval,sysdate,#{purchasekind},#{purchasename},#{purchasecompany},
+		#{purchaseprice},#{purchaseacount},#{username})
 	</insert>
 	
 	<update id="purchaseUpdate" parameterType="co.jeong.prj.purchase.service.PurchaseVO">
-		update purchase set purchasecompany = #{purchasecompany},purproductname = #{purproductname},purprice = #{purprice},
-		purcount = #{purcount}, purstock = #{purstock} where purchasenum = #{purchasenum}
+		update purchase set purchasekind = #{purchasekind},purchasename = #{purchasename}, purchasecompany = #{purchasecompany}, 
+		purchaseprice = #{purchaseprice}, purchaseacount = #{purchaseacount} where purchasenum = #{purchasenum}
 	</update>
 	
 	<delete id="purchaseDelete" parameterType="co.jeong.prj.purchase.service.PurchaseVO">

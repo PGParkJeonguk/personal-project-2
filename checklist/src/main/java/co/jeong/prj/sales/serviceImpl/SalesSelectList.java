@@ -18,12 +18,12 @@ public class SalesSelectList implements Command {
 		if(sales != null) {
 			for(SalesVO vo : sales) {
 				System.out.print(vo.getSalesnum()+ " ");
+				System.out.print(vo.getSalesdate() + " ");
 				System.out.print(vo.getSalescompany()+ " ");
-				System.out.print(vo.getSalkind()+ " ");
-				System.out.print(vo.getSalproductname()+ " ");
-				System.out.print(vo.getSalprice()+ " ");
-				System.out.print(vo.getSalcount()+ " ");
-				System.out.println(vo.getSalstock());
+				System.out.print(vo.getSaleskind()+ " ");
+				System.out.print(vo.getSalesname()+ " ");
+				System.out.print(vo.getSalesprice()+ " ");
+				System.out.println(vo.getSalesacount()+ " ");
 			}
 		}else {
 			System.out.println("등록된 납품물품이 없습니다.");

@@ -14,18 +14,16 @@ public class PurchaseInsert implements Command {
 		purchase.setUsername(scn.nextLine());
 		if(GB.username.equals(purchase.getUsername())) {
 			System.out.println("=========================");
-			System.out.println("납입회사를 입력하세요.");
+			System.out.println("입고물품종류를 입력하세요..");
+			purchase.setPurchasekind(scn.nextLine());
+			System.out.println("입고물품이름을 입력하세요.");
+			purchase.setPurchasename(scn.nextLine());
+			System.out.println("입고물품의 회사를 입력하세요.");
 			purchase.setPurchasecompany(scn.nextLine());
-			System.out.println("종류를 입력하세요.");
-			purchase.setPurkind(scn.nextLine());
-			System.out.println("제품이름을 입력하세요.");
-			purchase.setPurproductname(scn.nextLine());
-			System.out.println("제품납입가격을 입력하세요.");
-			purchase.setPurprice(scn.nextInt());
-			System.out.println("제품납입갯수를 입력하세요.");
-			purchase.setPurcount(scn.nextInt());
-			System.out.println("제품재고를 입력하세요.");
-			purchase.setPurstock(scn.nextInt());
+			System.out.println("입고물품가격을 입력하세요.");
+			purchase.setPurchaseprice(scn.nextInt());
+			System.out.println("입고물품갯수를 입력하세요.");
+			purchase.setPurchaseacount(scn.nextInt());
 			purchase.setUsername(GB.username);
 			
 			int n = dao.purchaseInsert(purchase);

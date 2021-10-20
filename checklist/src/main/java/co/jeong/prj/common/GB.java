@@ -9,8 +9,15 @@ public class GB {
 	public static String tel;
 	public static String address;
 	public static String username;
-	public static int purchasenum;
-	public static int salesnum;
+	public static int salesacount;
+	public static String salesname;
+	public static int purchaseacount;
+	public static String purchasename;
+	
 
 	public static Scanner scn = new Scanner(System.in);
+	
+	
+	
+	
 }

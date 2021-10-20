@@ -14,19 +14,20 @@ public class SalesUpdate implements Command {
 		System.out.println("변경할 제품번호를 입력하세요.");
 		sales.setSalesnum(scn.nextInt());
 		scn.nextLine();
+		System.out.println("변경할 납품한 제품의 종류를 입력하세요.");
+		sales.setSaleskind(scn.nextLine());
+		System.out.println("변경할 납품한 제품의 이름을 입력하세요.");
+		sales.setSalesname(scn.nextLine());
 		System.out.println("변경할 납품회사명을 입력하세요.");
 		sales.setSalescompany(scn.nextLine());
-		System.out.println("변경할 제품이름을 입력하세요.");
-		sales.setSalproductname(scn.nextLine());
-		System.out.println("변경할 제품가격을 입력하세요.");
-		sales.setSalprice(scn.nextInt());
-		System.out.println("변경할 제품출고수량을 입력하세요.");
-		sales.setSalcount(scn.nextInt());
-		System.out.println("변경할 재고수량을 입력하세요.");
-		sales.setSalstock(scn.nextInt());
-		System.out.println("변경할 바코드를 입력하세요.");
-		sales.setBacord(scn.nextInt());
-
+		System.out.println("변경할 납품한 제품의 가격을 입력하세요.");
+		sales.setSalesprice(scn.nextInt());
+		System.out.println("변경할 납품한 제품의출고수량을 입력하세요.");
+		sales.setSalesacount(scn.nextInt());
+		scn.nextLine();
+		System.out.println("변경해야하는 납품날짜를 입력하세요.");
+		sales.setSalesdate(scn.nextLine());
+		
 		int n = dao.salesSelectUpdate(sales);
 		if (n != 0) {
 			System.out.println("정상적으로 변경되었습니다.");
